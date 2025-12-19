@@ -125,12 +125,6 @@ int main() {
                     auto desired_width = data["desired_width"];
                     auto desired_height = data["desired_height"];
                     
-                    if (!input_jpeg || !desired_width || !desired_height) {
-                        req->response.result(400);
-                        req->response.body = "{\"code\": 400, \"message\": \"Missing required fields: input_jpeg, desired_width, desired_height\"}";
-                        return;
-                    }
-
                     // Perform image resizing
                     std::string output_jpeg = resize_jpeg(input_jpeg, desired_width, desired_height);
                     
