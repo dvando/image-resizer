@@ -57,7 +57,8 @@ RUN cd ~/temp && \
 
 WORKDIR /app
 COPY . /app
-RUN mkdir build && cd build && \
+RUN git submodule update --init --recursive && \
+    mkdir build && cd build && \
     cmake .. && \
     make -j6
 
